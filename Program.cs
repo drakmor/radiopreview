@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Net.Sockets;
 using System.IO;
 using System.Text;
@@ -27,9 +27,9 @@ namespace RadioPreview
                         {
                             writer.NewLine = "\n";
                             writer.AutoFlush = true;
-                            writer.WriteLine("IP");
-                            writer.WriteLine("VER");
-                            writer.WriteLine("ADD GPO");
+                            await writer.WriteLineAsync("IP");
+                            await writer.WriteLineAsync("VER");
+                            await writer.WriteLineAsync("ADD GPO");
                             while (true && tcp.Connected)
                             {
                                 string data = await reader.ReadLineAsync();
